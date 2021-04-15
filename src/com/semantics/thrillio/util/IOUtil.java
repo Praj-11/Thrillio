@@ -1,10 +1,11 @@
 package com.semantics.thrillio.util;
 
 import java.io.*;
+import java.util.List;
 
 public class IOUtil {
 
-    public static void read(String[] data, String filename){
+    public static void read(List<String> data, String filename){
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"))) {
 
@@ -12,7 +13,7 @@ public class IOUtil {
             int count = 0;
             while ((line = br.readLine()) != null){
 
-                data[count] = line;
+                data.add(line);
                 count++;
             }
 

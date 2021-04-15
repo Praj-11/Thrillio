@@ -7,11 +7,12 @@ import com.semantics.thrillio.util.IOUtil;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 public class BookmarkManager {
 
-    private static BookmarkManager instance = new BookmarkManager();
-    private static BookmarkDao dao = new BookmarkDao();
+    private static final BookmarkManager instance = new BookmarkManager();
+    private static final BookmarkDao dao = new BookmarkDao();
 
     private BookmarkManager(){}
 
@@ -63,7 +64,7 @@ public class BookmarkManager {
         return webLink;
     }
 
-    public Bookmark[][] getBookmarks(){
+    public List<List<Bookmark>> getBookmarks(){
         return dao.getBookmarks();
     }
 
@@ -86,9 +87,7 @@ public class BookmarkManager {
                     }
                 }
 
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            } catch (MalformedURLException e) {
+            } catch (URISyntaxException | MalformedURLException e) {
                 e.printStackTrace();
             }
         }

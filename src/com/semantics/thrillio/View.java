@@ -8,18 +8,19 @@ import com.semantics.thrillio.entities.User;
 import com.semantics.thrillio.partner.Shareable;
 
 import java.awt.*;
+import java.util.List;
 
 public class View {
 
-    public static void browse(User user, Bookmark[][] bookmarks){
+    public static void browse(User user, List<List<Bookmark>> bookmarks){
 
         System.out.println("\n" + user.getEmail() + "is bookmarking");
         int bookmarkCount = 0;
 
-        for(Bookmark[] bookmarksList : bookmarks){
+        for(List<Bookmark> bookmarksList : bookmarks){
             for (Bookmark bookmark : bookmarksList){
 
-                if (bookmarkCount < DataStore.USER_BOOKMARK_LIMIT){
+//                if (bookmarkCount < DataStore.USER_BOOKMARK_LIMIT){
 
                     boolean isBookmarked = getBookmarkDecision(bookmark);
                     if (isBookmarked){
@@ -30,7 +31,7 @@ public class View {
 
                         System.out.println("New Item Bookmarked -- " + bookmark);
                     }
-                }
+//                }
 
 
 
