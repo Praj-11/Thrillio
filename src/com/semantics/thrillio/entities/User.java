@@ -1,9 +1,13 @@
 package com.semantics.thrillio.entities;
 
+import com.semantics.thrillio.constants.Gender;
+import com.semantics.thrillio.constants.UserType;
+
 public class User {
     private long id;
-    private String email, password, firstName, lastName, userType;
-    private int gender;
+    private String email, password, firstName, lastName;
+    private UserType userType;
+    private Gender gender;
 
     public long getId() {
         return id;
@@ -58,19 +62,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 
-    public int getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 }

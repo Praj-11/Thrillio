@@ -1,5 +1,8 @@
 package com.semantics.thrillio.managers;
 
+import com.semantics.thrillio.constants.BookGenre;
+import com.semantics.thrillio.constants.KidFriendlyStatus;
+import com.semantics.thrillio.constants.MovieGenre;
 import com.semantics.thrillio.dao.BookmarkDao;
 import com.semantics.thrillio.entities.*;
 import com.semantics.thrillio.util.HttpConnect;
@@ -21,7 +24,7 @@ public class BookmarkManager {
     }
 
     public Movie createMovie(long id, String title, int releaseYear, String[] cast,
-                             String[] directors, String genre, double imdbRating){
+                             String[] directors, MovieGenre genre, double imdbRating){
 
         Movie movie = new Movie();
         movie.setId(id);
@@ -37,7 +40,7 @@ public class BookmarkManager {
     }
 
     public Book createBook(long id, String title, int publicationYear,
-                           String publisher, String[] authors, String genre, double amazonRating){
+                           String publisher, String[] authors, BookGenre genre, double amazonRating){
 
         Book book = new Book();
         book.setId(id);
@@ -95,7 +98,7 @@ public class BookmarkManager {
         dao.saveUserBookmark(userBookmark);
     }
 
-    public void setKidFriendlyStatus(User user, String kidFriendlyStatus, Bookmark bookmark) {
+    public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark) {
 
         bookmark.setKidFriendlyMarkedBy(user);
         bookmark.setKidFriendlyStatus(kidFriendlyStatus);

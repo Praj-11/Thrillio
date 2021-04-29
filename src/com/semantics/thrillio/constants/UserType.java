@@ -1,10 +1,18 @@
 package com.semantics.thrillio.constants;
 
-public class UserType {
+public enum UserType {
+    
+    USER("user"),
+    EDITOR("editor"),
+    CHIEFEDITOR("chiefeditor");
 
-    private UserType(){ }
+    private UserType (String name){
+        this.name = name;
+    }
 
-    public static final String USER = "user";
-    public static final String EDITOR = "editor";
-    public static final String CHIEFEDITOR = "chiefeditor";
+    private String name;
+
+    public String getName() {
+        return name;
+    }
 }
