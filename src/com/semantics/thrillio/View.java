@@ -19,7 +19,7 @@ public class View {
 
         for(List<Bookmark> bookmarksList : bookmarks){
             for (Bookmark bookmark : bookmarksList){
-
+//                Bookmarking!!
 //                if (bookmarkCount < DataStore.USER_BOOKMARK_LIMIT){
 
                     boolean isBookmarked = getBookmarkDecision(bookmark);
@@ -52,7 +52,7 @@ public class View {
                     // Sharing!!
 
                     if (bookmark.getKidFriendlyStatus().equals(KidFriendlyStatus.APPROVED) && bookmark instanceof Shareable){
-                        
+
                         boolean isShared = getShareDecision();
                         if (isShared){
 
@@ -73,8 +73,10 @@ public class View {
 
     private static KidFriendlyStatus getKidFriendlyDecisionStatus(Bookmark bookmark) {
 
-        return Math.random() < 0.4 ? KidFriendlyStatus.APPROVED :
-                (Math.random() >= 0.4 && Math.random() < 0.8) ? KidFriendlyStatus.REJECTED :
+        double decision = Math.random();
+
+        return decision < 0.4 ? KidFriendlyStatus.APPROVED :
+                (decision >= 0.4 && decision < 0.8) ? KidFriendlyStatus.REJECTED :
                         KidFriendlyStatus.UNKNOWN;
     }
 
